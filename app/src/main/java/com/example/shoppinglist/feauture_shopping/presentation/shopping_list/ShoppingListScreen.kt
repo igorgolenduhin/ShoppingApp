@@ -22,7 +22,6 @@ import com.example.shoppinglist.feauture_shopping.presentation.shopping_list.com
 import com.example.shoppinglist.feauture_shopping.presentation.util.Screen
 import kotlinx.coroutines.launch
 
-@ExperimentalAnimationApi
 @Composable
 fun ShoppingListScreen(
     navController: NavController,
@@ -40,8 +39,7 @@ fun ShoppingListScreen(
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = "Add new shopping item",
-                    Modifier.background(MaterialTheme.colors.primary)
+                    contentDescription = "Add new shopping item"
                 )
             }
         },

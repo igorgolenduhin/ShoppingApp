@@ -39,19 +39,18 @@ fun ShoppingItemObject(
         ) {
             Box(
                 modifier = Modifier
-                    .size(15.dp)
-                    .shadow(5.dp)
+                    .size(25.dp)
                     .clip(CircleShape)
                     .background(Color.Transparent)
                     .border(
                         width = 3.dp,
-                        color = if (shoppingItem.completion == true) {
+                        color = if (shoppingItem.completion) {
                             Color.Green
                         } else Color.Red,
                         shape = CircleShape
                     )
                     .clickable {
-                        onCompleteClick
+                        onCompleteClick()
                     }
                 // TODO: 11/12/2021 Make it in vertical center if we have more than 1 line of title
 
@@ -66,7 +65,7 @@ fun ShoppingItemObject(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-            IconButton(onClick = { onDeleteClick }) {
+            IconButton(onClick = onDeleteClick) {
                 Image(imageVector = Icons.Default.Delete, contentDescription = "Delete")
             }
 

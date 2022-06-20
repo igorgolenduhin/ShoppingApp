@@ -1,6 +1,5 @@
 package com.example.shoppinglist.feauture_shopping.presentation.add_edit_item
 
-import android.widget.ImageButton
 import androidx.compose.animation.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
@@ -15,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
@@ -26,7 +24,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.shoppinglist.feauture_shopping.domain.model.ShoppingItem
 import com.example.shoppinglist.feauture_shopping.presentation.add_edit_item.components.CustomTextField
-import com.example.shoppinglist.feauture_shopping.presentation.util.Screen
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -65,7 +62,7 @@ fun AddEditItemScreen(
                 onClick = {
                     viewModel.onEvent(AddEditItemEvent.SaveItem)
                 },
-                backgroundColor = Color.Gray
+                backgroundColor = Color.Black
             ) {
                 Icon(imageVector = Icons.Default.NoteAdd, contentDescription = "Save Item")
             }
@@ -88,11 +85,11 @@ fun AddEditItemScreen(
                     val colorInt = color.toArgb()
                     Box(modifier = Modifier
                         .size(50.dp)
-                        .shadow(15.dp)
+//                        .shadow(15.dp)
                         .clip(CircleShape)
                         .background(color)
                         .border(
-                            width = 3.dp,
+                            width = 5.dp,
                             color = if (viewModel.itemColor.value == colorInt) {
                                 Color.Black
                             } else Color.Transparent,
@@ -132,7 +129,7 @@ fun AddEditItemScreen(
 
                                 modifier = Modifier
                                     .size(if (viewModel.itemType.value == type) {
-                                        40.dp
+                                        35.dp
                                     } else 30.dp)
                                     .clickable {
                                         viewModel.onEvent(AddEditItemEvent.ChangeItemType(type))
@@ -151,7 +148,7 @@ fun AddEditItemScreen(
 
                                 modifier = Modifier
                                     .size(if (viewModel.itemType.value == type) {
-                                        40.dp
+                                        35.dp
                                     } else 30.dp)
                                     .clickable {
                                         viewModel.onEvent(AddEditItemEvent.ChangeItemType(type))
@@ -169,7 +166,7 @@ fun AddEditItemScreen(
                                 modifier = Modifier
                                     .size(
                                         if (viewModel.itemType.value == type) {
-                                            40.dp
+                                            35.dp
                                         } else 30.dp
                                     )
                                     .clickable {
@@ -213,7 +210,7 @@ fun AddEditItemScreen(
                 onFocusChange = {
                     viewModel.onEvent(AddEditItemEvent.ChangeTitleFocus(it))
                 },
-                textStyle = MaterialTheme.typography.h5
+                textStyle = MaterialTheme.typography.h6
             )
         }
     }
